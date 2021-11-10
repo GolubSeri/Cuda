@@ -118,6 +118,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: calc(40px + 80 * ((100vw - 320px) / 763));
   }
 }
+@media (max-width: 479.98px) {
+  .Title {
+    margin: 0px 20px 20px 20px;
+  }
+}
 .Title:after {
   content: "";
   width: calc(50px + 37 * ((100vw - 320px) / 1120));
