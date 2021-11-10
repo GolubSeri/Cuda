@@ -192,37 +192,40 @@ $md4:479.98;
 	color: #ffffff;
 	margin: 0px auto;
 
+	@media (max-width: $md4 + px){
+		padding: 0px 20px 0px 20px;
+	}
+
 	@include adaptiv-value('line-height', 26, 22, 0);
 	@include adaptiv-value('margin-bottom', 80, 35, 0);
 	font-size: 18px;
-	//@include adaptiv-value('font-size', 18, 16, 0);
 	@include adaptiv-value('max-width', 610, 350, 0);
 
 }
 .services-columns {
 	@include flexbox();
-	justify-content: center;
-
-	@media (max-width: $md3 + px){
-	}
+	text-align: center;
 
 	@media (max-width: $md3 + px){
 		flex-wrap: wrap;
 	}
+
+	@media (max-width: $md4 + px){
+		justify-content: space-around;
+	}
 }
 .services-columns-item {
 	flex: 0 0 25%;
-	text-align: center;
 
 	@media (max-width: $md3 + px){
 		flex: 0 0 50%;
 	}
 
-	// @media (max-width: $md4 + px){
-	// 	flex: 0 0 100%;
-	// }
+	@media (max-width: $md4 + px){
+		flex: 0 0 45%;
+	};
 }
-.item__image {
+.services-item__image {
 	padding: 0px 0px 45% 0px;
   	background-size: contain;
 
@@ -231,34 +234,45 @@ $md4:479.98;
 	}
 
 	@media (max-width: $md4 + px){
-		padding: 0px 0px 20% 0px;
+		padding: 0px 0px 75px 0px;
 	}
 
 	@include adaptiv-value('margin-bottom', 60, 15, 0);
 }
-.item__title {
+.services-item__title {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.02em;
 	color: #ffffff;
 
-	font-size: 24px;
-	//@include adaptiv-value('font-size', 24, 18, 0);
+	@include adaptiv-value('font-size', 24, 20, 0);
 	@include adaptiv-value('margin-bottom', 20, 10, 0);
+
+	@media (max-width: 345px){
+		font-size: 18.6px;
+	};
 }
-.item__text {
+.services-item__text {
 	font-weight: 300;
 	letter-spacing: 0.02em;
 	color: #ffffff;
 
 	margin: 0px auto;
 	font-size: 16px;
-	//max-width: 200px;
+	max-width: 200px;
 
 	@include adaptiv-value('line-height', 22, 19, 0);
 	//@include adaptiv-value('font-size', 16, 14, 0);
-	@include adaptiv-value('max-width', 200, 150, 0);
+	//@include adaptiv-value('max-width', 200, 150, 0);
 	@include adaptiv-value('margin-bottom', 0, 50, 0);
+
+	@media (max-width: $md4 + px){
+		@include adaptiv-value('max-width', 200, 140, 0);
+	};
+
+	@media (max-width: 345px){
+		font-size: 15.6px;
+	};
 }
 
 

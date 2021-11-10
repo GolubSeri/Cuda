@@ -303,15 +303,18 @@ header {
   font-size: 18px;
   max-width: calc(350px + 260 * ((100vw - 320px) / 1120));
 }
+@media (max-width: 479.98px) {
+  .services-top__text {
+    padding: 0px 20px 0px 20px;
+  }
+}
 
 .services-columns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   font-size: 0;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  text-align: center;
 }
 @media (max-width: 767.98px) {
   .services-columns {
@@ -319,12 +322,17 @@ header {
         flex-wrap: wrap;
   }
 }
+@media (max-width: 479.98px) {
+  .services-columns {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
 
 .services-columns-item {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
-  text-align: center;
 }
 @media (max-width: 767.98px) {
   .services-columns-item {
@@ -333,41 +341,63 @@ header {
             flex: 0 0 50%;
   }
 }
+@media (max-width: 479.98px) {
+  .services-columns-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 45%;
+            flex: 0 0 45%;
+  }
+}
 
-.item__image {
+.services-item__image {
   padding: 0px 0px 45% 0px;
   background-size: contain;
   margin-bottom: calc(15px + 45 * ((100vw - 320px) / 1120));
 }
 @media (max-width: 767.98px) {
-  .item__image {
+  .services-item__image {
     padding: 0px 0px 35% 0px;
   }
 }
 @media (max-width: 479.98px) {
-  .item__image {
-    padding: 0px 0px 20% 0px;
+  .services-item__image {
+    padding: 0px 0px 75px 0px;
   }
 }
 
-.item__title {
+.services-item__title {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   color: #ffffff;
-  font-size: 24px;
+  font-size: calc(20px + 4 * ((100vw - 320px) / 1120));
   margin-bottom: calc(10px + 10 * ((100vw - 320px) / 1120));
 }
+@media (max-width: 345px) {
+  .services-item__title {
+    font-size: 18.6px;
+  }
+}
 
-.item__text {
+.services-item__text {
   font-weight: 300;
   letter-spacing: 0.02em;
   color: #ffffff;
   margin: 0px auto;
   font-size: 16px;
+  max-width: 200px;
   line-height: calc(19px + 3 * ((100vw - 320px) / 1120));
-  max-width: calc(150px + 50 * ((100vw - 320px) / 1120));
   margin-bottom: calc(50px + -50 * ((100vw - 320px) / 1120));
+}
+@media (max-width: 479.98px) {
+  .services-item__text {
+    max-width: calc(140px + 60 * ((100vw - 320px) / 1120));
+  }
+}
+@media (max-width: 345px) {
+  .services-item__text {
+    font-size: 15.6px;
+  }
 }
 
 .team {
