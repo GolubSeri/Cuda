@@ -73,21 +73,16 @@ $md4:479.98;
 		margin: 0 auto;
 		width: 100%;
 	}
-
-	//@media (max-width: $md2+px){max-width: 750px;}
-	//@media (max-width: $md3+px){max-width: none; padding: 0 10px;}
 }
 
 //Шаблоны
 .Title{
-	margin: 0px 0px 20px 0px;
+	margin: 0px 20px 20px 20px;
 	text-align: center;
 	@include adaptiv-value('font-size', 40, 32, 0);
-	@include adaptiv-value('padding-top', 120, 40, 1);
-	@include adaptiv-value('padding-bottom', 20, 12, 0);
-	@media (max-width: $md4 + px){
-		margin: 0px 20px 20px 20px;
-	}
+	@include adaptiv-value('padding-top', 120, 55, 1);
+	@include adaptiv-value('padding-bottom', 20, 13, 0);
+	
 	
 	font-weight: 700;
 	letter-spacing: 0.1em;
@@ -96,7 +91,7 @@ $md4:479.98;
 	&:after{
 		content: '';
 		@include adaptiv-value('width', 87, 50, 0);
-		@include adaptiv-value('height', 5, 3, 0);
+		@include adaptiv-value('height', 5, 4, 0);
 		position: absolute;
 		left: 50%;
 		bottom: 0;
@@ -104,6 +99,21 @@ $md4:479.98;
 	}
 }
 
+.MainText{
+	text-align: center;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	font-size: 18px;
+	margin: 0px auto;
+
+	@media (max-width: $md4 + px){
+		padding: 0px 20px 0px 20px;
+	}
+
+	@include adaptiv-value('line-height', 26, 24, 1);
+	@include adaptiv-value('margin-bottom', 80, 40, 1);
+	@include adaptiv-value('max-width', 610, 350, 1);
+}
 .Btn{
 	text-transform: uppercase;
 	display: inline-block;
@@ -142,7 +152,7 @@ $md4:479.98;
 	transform: translate(-50%, -50%);
 }
 .main-body-text{
-	@include adaptiv-value("font-size", 42.2, 20, 0);
+	@include adaptiv-value("font-size", 42.2, 24, 0);
 	@include adaptiv-value("line-height", 48, 28, 0);
 	@include adaptiv-value("padding-left", 0, 15, 1);
 	@include adaptiv-value("padding-right", 0, 15, 1);
@@ -167,12 +177,12 @@ $md4:479.98;
 	background-color: #17c2a4;
 	min-height: 750px;
 
-	@media (max-width: $md2+px){
-		min-height: 600px;
+	@media (max-width: $md1+px){
+		min-height: 700px;
 	}
 
-	@media (max-width: 680px){
-		min-height: 740px;
+	@media (max-width: $md2+px){
+		min-height: 650px;
 	}
 
 	@media (max-width: 500px){
@@ -186,21 +196,7 @@ $md4:479.98;
 	}
 }
 .services-top__text {
-	text-align: center;
-	font-weight: 400;
-	letter-spacing: 0.02em;
 	color: #ffffff;
-	margin: 0px auto;
-
-	@media (max-width: $md4 + px){
-		padding: 0px 20px 0px 20px;
-	}
-
-	@include adaptiv-value('line-height', 26, 22, 0);
-	@include adaptiv-value('margin-bottom', 80, 35, 0);
-	font-size: 18px;
-	@include adaptiv-value('max-width', 610, 350, 0);
-
 }
 .services-columns {
 	@include flexbox();
@@ -208,17 +204,20 @@ $md4:479.98;
 
 	@media (max-width: $md3 + px){
 		flex-wrap: wrap;
+		justify-content: space-evenly;
 	}
 
 	@media (max-width: $md4 + px){
 		justify-content: space-around;
 	}
+
+	@include adaptiv-value('padding-bottom', 50, 10, 0);
 }
 .services-columns-item {
 	flex: 0 0 25%;
 
 	@media (max-width: $md3 + px){
-		flex: 0 0 50%;
+		flex: 0 0 35%;
 	}
 
 	@media (max-width: $md4 + px){
@@ -226,15 +225,15 @@ $md4:479.98;
 	};
 }
 .services-item__image {
-	padding: 0px 0px 45% 0px;
+	padding: 0px 0px 120px 0px;
   	background-size: contain;
 
 	@media (max-width: $md3 + px){
-		padding: 0px 0px 35% 0px;
+		padding: 0px 0px 100px 0px;
 	}
 
 	@media (max-width: $md4 + px){
-		padding: 0px 0px 75px 0px;
+		padding: 0px 0px 80px 0px;
 	}
 
 	@include adaptiv-value('margin-bottom', 60, 15, 0);
@@ -262,9 +261,11 @@ $md4:479.98;
 	max-width: 200px;
 
 	@include adaptiv-value('line-height', 22, 19, 0);
-	//@include adaptiv-value('font-size', 16, 14, 0);
-	//@include adaptiv-value('max-width', 200, 150, 0);
 	@include adaptiv-value('margin-bottom', 0, 50, 0);
+
+	@media (max-width: $md2 + px){
+		max-width: 170px;
+	};
 
 	@media (max-width: $md4 + px){
 		@include adaptiv-value('max-width', 200, 140, 0);
@@ -274,8 +275,6 @@ $md4:479.98;
 		font-size: 15.6px;
 	};
 }
-
-
 
 // ==================================
 
@@ -291,12 +290,9 @@ $md4:479.98;
 	}
 }
 .team__text {
-	text-align: center;
 	font-size: 18.6px;
-	font-weight: 400;
-	letter-spacing: 0.02em;
 	color: #3c4761;
-	padding: 0px 0px 80px 0px;
+	@include adaptiv-value('max-width', 670, 350, 1);
 }
 .team-columns {
 	@include flexbox();
@@ -393,7 +389,6 @@ $md4:479.98;
 	}
 }
 
-
 // ==================================
 
 .skills{
@@ -407,12 +402,6 @@ $md4:479.98;
 	}
 }
 .skills__text {
-	text-align: center;
-	margin: 0px 0px 80px 0px;
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: 400;
-	letter-spacing: 0.02em;
 	color: #3c4761;
 }
 .skills-columns {
@@ -464,12 +453,6 @@ $md4:479.98;
 	}
 }
 .portfolio__text {
-	text-align: center;
-	margin: 0px 0px 80px 0px;
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: 400;
-	letter-spacing: 0.02em;
 	color: #393939;
 }
 .portfolio__menu {
@@ -537,12 +520,6 @@ $md4:479.98;
 	}
 }
 .commetns__text {
-	text-align: center;
-	margin: 0px 0px 80px 0px;
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: 400;
-	letter-spacing: 0.02em;
 	color: #ffff;
 }
 .commetns-columns {
@@ -610,21 +587,9 @@ $md4:479.98;
 	}
 }
 .form__text {
-	text-align: center;
-	margin: 0px 0px 80px 0px;
-	font-size: 18px;
-	line-height: 26px;
-	font-weight: 400;
-	letter-spacing: 0.02em;
+	@include adaptiv-value('max-width', 800, 350, 1);
 	color: #ffff;
-
 	a{
-		text-align: center;
-		margin: 0px 0px 80px 0px;
-		font-size: 18px;
-		line-height: 26px;
-		font-weight: 400;
-		letter-spacing: 0.02em;
 		color: #ffff;
 	}
 }
