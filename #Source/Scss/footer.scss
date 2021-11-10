@@ -1,0 +1,23 @@
+.footer-body {
+	min-height: 80px;
+	background-color: #344b8e;
+}
+.footer-body-menu {
+}
+.footer-body-menu-list {
+	min-height: 80px;
+	align-items: center;
+	@include flexbox();
+	justify-content: space-around;
+}
+.footer-body-menu-list__link {
+	font-size: 24px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+
+	&:hover{
+		color: #30bae7;	
+	}
+
+}

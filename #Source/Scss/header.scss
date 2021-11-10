@@ -1,0 +1,34 @@
+header{
+	padding: 57px 0px 0px 0px;
+}
+.container {
+	font-family: 'Titillium Web';
+}
+.header-body {
+	@include flexbox();
+	justify-content: space-between;
+	align-items: center;
+}
+.header-body-logo {}
+.header-top-logo__logo {
+	display: block;
+	margin: 0px 0px 0px 32px;
+}
+.header-body-meny {}
+.header-body-meny-list {
+	@include flexbox();
+}
+.header-body-meny-list__link {
+	//display: block;
+	font-size: 16px;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: #ffffff;
+	//line-height: 32px;
+	margin: 0 0 0 11px;
+	padding: 4px 17px;
+	&:hover{
+		background: #643a79;
+		border-radius: 4px;
+	}
+}

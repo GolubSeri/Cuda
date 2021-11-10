@@ -1,0 +1,640 @@
+// Миксины
+@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;}
+
+$maxWidth: 1440;
+$maxWidthContainer: 1083;
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	@if $type==1 {
+		//Только если меньше контейнера
+		#{$property}: $startSize + px;
+		@media (max-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+		}
+	} @else if $type==2 {
+		//Только если больше контейнера
+		#{$property}: $startSize + px;
+		@media (min-width: #{$maxWidthContainer + px}) {
+			#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+		}
+	} @else {
+		//Всегда
+		#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+	}
+}
+
+// Подключаем шрифты
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
+
+// Шрифт по умолчанию
+$fontfamily:"Titillium Web";
+
+// Переменные
+
+// Ширина основного контейнера
+$mw: 1083;
+$minwidth: 320px;
+$md1:$mw+12;
+$md2:992.98;
+$md3:767.98;
+$md4:479.98;
+
+// Обнуление
+@import "nullstyle.scss";
+
+// Оболочка
+.wrapper{
+	width: 100%; min-height: 100%; overflow: hidden; 
+	&.loaded{}
+}
+
+// Заготовки
+.ibg{
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.ibg img{
+	display: none;
+}
+
+// Основная сетка
+.container{
+	max-width: $mw+px; margin: 0 auto; width: 100%;
+	&.big{
+		max-width: 1133px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	&.small{
+		max-width: 860px;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	//@media (max-width: $md2+px){max-width: 750px;}
+	//@media (max-width: $md3+px){max-width: none; padding: 0 10px;}
+}
+
+//Шаблоны
+.Title{
+	margin: 0px 0px 20px 0px;
+	text-align: center;
+	@include adaptiv-value('font-size', 40, 32, 0);
+	@include adaptiv-value('padding-top', 120, 40, 1);
+	@include adaptiv-value('padding-bottom', 20, 12, 0);
+	font-weight: 700;
+	letter-spacing: 0.1em;
+
+	position: relative;
+	&:after{
+		content: '';
+		@include adaptiv-value('width', 87, 50, 0);
+		@include adaptiv-value('height', 5, 3, 0);
+		position: absolute;
+		left: 50%;
+		bottom: 0;
+		@include adaptiv-value('margin-left', -43.5, -22, 0);
+	}
+}
+
+.Btn{
+	text-transform: uppercase;
+	display: inline-block;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	border-radius: 4px;
+
+	@include adaptiv-value("font-size", 18, 16, 1);
+
+	@include adaptiv-value("padding-top", 21, 15, 1);
+	@include adaptiv-value("padding-right", 81, 35, 1);
+	@include adaptiv-value("padding-bottom", 21, 15, 1);
+	@include adaptiv-value("padding-left", 81, 35, 1);
+}
+
+// Подключаем header
+@import "header.scss";
+
+
+// Основной блок
+// ================================== 
+
+.FirstScreen {
+	min-height: 100vh;
+	background-color: #87509c;
+}
+
+// ================================== 
+
+.main-body{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+.main-body-text{
+	@include adaptiv-value("font-size", 42.2, 20, 0);
+	@include adaptiv-value("line-height", 48, 28, 0);
+	@include adaptiv-value("padding-left", 0, 15, 1);
+	@include adaptiv-value("padding-right", 0, 15, 1);
+	@include adaptiv-value("margin-bottom", 57, 25, 0);
+	text-align: center; 
+	font-weight: 700;
+	color: #f7f3ea;
+	max-width: 850px;
+}
+.main-body-btn {
+	text-align: center;
+}
+.main-body__btn {
+	color: #ffffff;
+	background: #eb7d4b;
+	box-shadow: 0 4px 0px rgba(200, 106, 64, 1);
+}
+
+// ==================================
+
+.services {
+	background-color: #17c2a4;
+	min-height: 750px;
+
+	@media (max-width: $md2+px){
+		min-height: 600px;
+	}
+
+	@media (max-width: 680px){
+		min-height: 740px;
+	}
+
+	@media (max-width: 500px){
+		min-height: 720px;
+	}
+}
+.services-top__title {
+	color: #ffffff;
+	&:after{
+		background-color: #14a78d;
+	}
+}
+.services-top__text {
+	text-align: center;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	margin: 0px auto;
+
+	@include adaptiv-value('line-height', 26, 22, 0);
+	@include adaptiv-value('margin-bottom', 80, 35, 0);
+	font-size: 18px;
+	//@include adaptiv-value('font-size', 18, 16, 0);
+	@include adaptiv-value('max-width', 610, 350, 0);
+
+}
+.services-columns {
+	@include flexbox();
+	justify-content: center;
+
+	@media (max-width: $md3 + px){
+		//justify-content: cen;
+	}
+
+	@media (max-width: $md3 + px){
+		flex-wrap: wrap;
+	}
+}
+.services-columns-item {
+	flex: 0 0 25%;
+	text-align: center;
+
+	@media (max-width: $md3 + px){
+		flex: 0 0 50%;
+	}
+
+	@media (max-width: $md4 + px){
+		flex: 0 0 100%;
+	}
+}
+.item__image {
+	padding: 0px 0px 45% 0px;
+  	background-size: contain;
+
+	@media (max-width: $md3 + px){
+		padding: 0px 0px 35% 0px;
+	}
+
+	@media (max-width: $md4 + px){
+		padding: 0px 0px 20% 0px;
+	}
+
+	@include adaptiv-value('margin-bottom', 60, 15, 0);
+}
+.item__title {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+
+	font-size: 24px;
+	//@include adaptiv-value('font-size', 24, 18, 0);
+	@include adaptiv-value('margin-bottom', 20, 10, 0);
+}
+.item__text {
+	font-weight: 300;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+
+	margin: 0px auto;
+	font-size: 16px;
+	//max-width: 200px;
+
+	@include adaptiv-value('line-height', 22, 19, 0);
+	//@include adaptiv-value('font-size', 16, 14, 0);
+	@include adaptiv-value('max-width', 200, 150, 0);
+	@include adaptiv-value('margin-bottom', 0, 50, 0);
+}
+
+
+
+// ==================================
+
+.team {
+	min-height: 915px;
+	background-color: #e7f1f8;
+}
+
+.team__title {
+	color: #3c4761;
+	&:after{
+		background-color: #c9dae6;
+	}
+}
+.team__text {
+	text-align: center;
+	font-size: 18.6px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #3c4761;
+	padding: 0px 0px 80px 0px;
+}
+.team-columns {
+	@include flexbox();
+	justify-content: space-around;
+	@media (max-width: 1000px){
+		justify-content: center;
+	}
+
+	@media (max-width: 920px){
+		justify-content: space-around;
+		flex-wrap: wrap;
+	}
+			
+}
+.team-columns__item {
+	flex: 0 0 19%;
+	//max-width: 200px;
+	text-align: center;
+
+	@media (max-width: 1000px){
+		margin-right: 30px;
+		&:last-child{
+			margin: 0px 0px;
+		}
+	}
+
+	@media (max-width: 920px){
+		flex: 0 0 15%;
+	}
+}
+.team-item__image {
+	background-size: contain;
+	padding: 0px 0px 96% 0px;
+	border: 4px solid #878787;
+	border-radius: 100%;
+
+	margin: 0px 0px 40px 0px;
+
+
+}
+.team-item__name {
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #27283d;
+
+	margin: 0px 0px 15px 0px;
+}
+.team-item__post {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #30bae7;
+
+	margin: 0px 0px 30px 0px;
+}
+.team-item__text {
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 300;
+	letter-spacing: 0.02em;
+	color: #3c4761;
+
+	margin: 0px 0px 30px 0px;
+}
+.item-links {
+	@include flexbox();
+	justify-content: center;
+	padding: 0px 0px 120px 0px;
+}
+.link__item {
+	margin: 0px 13px 0px 0px;
+	&:last-child{
+		margin: 0px 0px;
+	}
+	width: 32px;
+	height: 32px;
+	background-color: #bdd1df;
+	border-radius: 100%;
+
+	&:hover{
+		border: 2px solid #878787;
+	}
+
+	position: relative;
+	img{
+	    position: absolute;
+	    margin: auto;
+	    left: 0;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	}
+}
+
+
+// ==================================
+
+.skills{
+	background-color: #ffffff;
+	min-height: 655px;
+}
+.skills__title {
+	color: #3c4761;
+	&:after{
+		background-color: #dfe8ed;
+	}
+}
+.skills__text {
+	text-align: center;
+	margin: 0px 0px 80px 0px;
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #3c4761;
+}
+.skills-columns {
+	@include flexbox();
+	justify-content: space-around;
+}
+.skills-columns__item {
+	flex: 0 0 25%;
+	text-align: center;
+	max-width: 190px;
+}
+.skills-item-graf {
+	background-size: contain;
+	margin: 0px 0px 32px 0px;
+	min-height: 160px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 50px;
+}
+.graf__text {
+	font-size: 50px;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #3c4761;
+	span{
+		font-size: 32px;
+	}
+}
+.skills-item__name {
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #3c4761;
+}
+
+// ==================================
+
+.portfolio {
+	background-color: #ffdd99;
+	min-height: 1430px;
+}
+.portfolio__title {
+	color: #393939;
+	&:after{
+		background-color: #e5c37f;
+	}
+}
+.portfolio__text {
+	text-align: center;
+	margin: 0px 0px 80px 0px;
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #393939;
+}
+.portfolio__menu {
+	margin: 0px 0px 64px 0px;
+}
+.menu-list {
+	@include flexbox();
+	justify-content: center;
+}
+.menu-list__link {
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #393939;
+	margin: 0px 10px 0px 0px;
+	padding: 5px 27px;
+	background-color: #ebcc8d;
+	&.active{
+		background-color: #fff;
+	}
+	border-radius: 5px;
+}
+.portfolio-columns {
+	@include flexbox();
+	flex-wrap: wrap;
+	margin: 0px 0px 20px 0px;
+	justify-content: space-between;
+}
+.portfolio-columns__item {
+	flex: 0 0 50%;
+	max-width: 540px;
+	text-align: center;
+	margin: 0px 0px 65px 0px;
+}
+.portfolio-item__iamge {
+	padding: 0px 0px 57% 0px;
+	margin: 0px 0px 32px 0px;
+}
+.portfolio-item__text {
+	font-size: 18px;
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #393939;
+}
+.portfolio-button {
+	text-align: center;
+}
+.portfolio__button {
+	color: #ffffff;
+	background: #17c2a4;
+	box-shadow: 0 4px 0px rgba(20, 165, 140, 1);
+}
+
+// ==================================
+
+.commetns {
+	background-color: #d74680;
+	min-height: 900px;
+}
+.commetns__title {
+	color: #ffffff;
+	&:after{
+		background-color: #b93c6e;
+	}
+}
+.commetns__text {
+	text-align: center;
+	margin: 0px 0px 80px 0px;
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #ffff;
+}
+.commetns-columns {
+	@include flexbox();
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.commetns-columns__item {
+	@include flexbox();
+	flex: 0 0 50%;
+	max-width: 510px;
+	margin: 0px 0px 145px 0px;
+}
+.comments-item__image {
+	background-size: contain;
+	width: 95px;
+	height: 95px;
+	margin: 0px 48px 0px 0px;
+	border-radius: 100%;
+	border: 1px solid black;
+}
+
+.comments-item-textBlock {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.comments-item__text {
+	font-size: 21px;
+	line-height: 31px;
+	font-weight: 400;
+	font-style: italic;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	margin: 0px 0px 30px 0px;
+}
+.comments-item__name {
+	font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	color: #ffffff;
+	margin: 0px 0px 9px 0px;
+}
+.comments-item__post {
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #ffdd99;
+}
+
+// ==================================
+
+.form {
+	background-color: #3c5499;
+	min-height: 820px;
+}
+.form__title {
+	color: #ffffff;
+
+	position: relative;
+	&:after{
+		background-color: #273a71;
+	}
+}
+.form__text {
+	text-align: center;
+	margin: 0px 0px 80px 0px;
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	color: #ffff;
+
+	a{
+		text-align: center;
+		margin: 0px 0px 80px 0px;
+		font-size: 18px;
+		line-height: 26px;
+		font-weight: 400;
+		letter-spacing: 0.02em;
+		color: #ffff;
+	}
+}
+.form-input {}
+.form-input-line {
+	@include flexbox();
+	justify-content: space-between;
+	margin: 0px 0px 30px 0px;
+}
+.input {}
+.form-input-area {
+	text-align: center;
+	margin: 0px 0px 60px 0px;
+}
+.form-input-button {
+	text-align: center;
+}
+.form-input-button__btn {
+	color: #ffffff;
+	background: #30bae7;
+	box-shadow: 0 4px 0px rgba(41, 158, 197, 1);
+}
+
+// ==================================
+
+// Подключаем footer
+@import "footer.scss";
+
+// Подключение файлов UI стилей, форм
+@import "forms.scss";
