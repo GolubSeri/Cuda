@@ -718,7 +718,6 @@ header {
 
 .portfolio {
   background-color: #ffdd99;
-  min-height: 1430px;
 }
 
 .portfolio__title {
@@ -863,6 +862,12 @@ header {
   background: #17c2a4;
   -webkit-box-shadow: 0 4px 0px #14a58c;
           box-shadow: 0 4px 0px #14a58c;
+  margin-bottom: 110px;
+}
+@media (max-width: 1095px) {
+  .portfolio__button {
+    margin-bottom: calc(70px + 40 * ((100vw - 320px) / 1120));
+  }
 }
 
 .commetns {

@@ -488,7 +488,19 @@ $md4:479.98;
 
 .portfolio {
 	background-color: #ffdd99;
-	min-height: 1430px;
+	//min-height: 1430px;
+
+	// @media (max-width: $md1 + px){
+	// 	@include adaptiv-value('min-height', 1430, 800, 1);
+	// };
+
+	// @media (max-width: $md3 + px){
+	// 	@include adaptiv-value('min-height', 2100, 1900, 1);
+	// };
+
+	// @media (max-width: 540px){
+	// 	@include adaptiv-value('min-height', 1950, 1750, 1);
+	// };
 }
 .portfolio__title {
 	color: #393939;
@@ -590,6 +602,11 @@ $md4:479.98;
 	color: #ffffff;
 	background: #17c2a4;
 	box-shadow: 0 4px 0px rgba(20, 165, 140, 1);
+
+	margin-bottom: 110px;
+	@media (max-width: $md1 + px){
+		@include adaptiv-value('margin-bottom', 110, 70, 0);
+	};
 }
 
 // ==================================
