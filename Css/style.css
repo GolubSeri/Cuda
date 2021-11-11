@@ -730,15 +730,14 @@ header {
 
 .portfolio__text {
   color: #393939;
-  margin-bottom: 45px;
+  margin-bottom: calc(30px + 15 * ((100vw - 320px) / 1120));
 }
 
 .portfolio__menu {
-  margin: 0px 0px 64px 0px;
+  margin-bottom: calc(40px + 24 * ((100vw - 320px) / 1120));
 }
 
 .menu-list {
-  border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -757,23 +756,52 @@ header {
   }
 }
 
+@media (max-width: 479.98px) {
+  .menu-list li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+  .menu-list li:nth-child(1) {
+    margin-right: -20%;
+    margin-bottom: calc(15px + 5 * ((100vw - 320px) / 1120));
+  }
+  .menu-list li:nth-child(2) {
+    margin-bottom: calc(15px + 5 * ((100vw - 320px) / 1120));
+  }
+  .menu-list li:nth-child(3) {
+    margin-right: -20%;
+  }
+}
+
 .menu-list__link {
-  border: 1px solid black;
-  display: block;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 100%;
-          flex: 0 0 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px 10px 0px 0px;
+  padding: 8px 27px;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.02em;
   color: #393939;
-  margin: 0px 10px 0px 0px;
-  padding: 8px 27px;
   background-color: #ebcc8d;
   border-radius: 5px;
 }
 .menu-list__link.active {
   background-color: #fff;
+}
+@media (max-width: 479.98px) {
+  .menu-list__link {
+    margin: 0px auto 0 auto;
+    max-width: 40%;
+    min-width: 80px;
+  }
+  .menu-list__link:nth-child(odd) {
+    margin: 0px auto 0px auto;
+  }
 }
 
 .portfolio-columns {
@@ -788,6 +816,13 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+@media (max-width: 767.98px) {
+  .portfolio-columns {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
 
 .portfolio-columns__item {
   -webkit-box-flex: 0;
@@ -795,16 +830,24 @@ header {
           flex: 0 0 50%;
   max-width: 540px;
   text-align: center;
-  margin: 0px 0px 65px 0px;
+  margin-bottom: calc(40px + 25 * ((100vw - 320px) / 1120));
+  padding: 0px 15px;
+}
+@media (max-width: 767.98px) {
+  .portfolio-columns__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
 }
 
 .portfolio-item__iamge {
   padding: 0px 0px 57% 0px;
-  margin: 0px 0px 32px 0px;
+  margin-bottom: calc(16px + 16 * ((100vw - 320px) / 1120));
 }
 
 .portfolio-item__text {
-  font-size: 18px;
+  font-size: calc(16px + 2 * ((100vw - 320px) / 1120));
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.02em;
