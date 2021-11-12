@@ -1,0 +1,25 @@
+.footer-body {
+  min-height: 80px;
+  background-color: #344b8e;
+}
+
+.footer-body-menu-list {
+  min-height: 80px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.footer-body-menu-list__link {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.footer-body-menu-list__link:hover {
+  color: #30bae7;
+}

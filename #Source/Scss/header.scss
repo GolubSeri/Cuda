@@ -14,7 +14,11 @@ header{
 	display: block;
 	margin: 0px 0px 0px 32px;
 }
-.header-body-meny {}
+.header-body-meny {
+	@media (max-width: 630px){
+		display: none;
+	};
+}
 .header-body-meny-list {
 	@include flexbox();
 }

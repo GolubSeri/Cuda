@@ -13,7 +13,7 @@ input[type=text],input[type=email],input[type=tel],textarea{-webkit-appearance:n
 	width: 100%;
 	padding: 0px 18px;
 
-	min-width: 416px;
+	//min-width: 416px;
 	min-height: 56px;
 	background-color: #273a71;
 
@@ -28,7 +28,4 @@ input[type=text],input[type=email],input[type=tel],textarea{-webkit-appearance:n
 // TEXTAREA
 textarea.input{
 	resize:none;
-	min-height: 200px;
-
-	padding: 18px 18px;
 }
