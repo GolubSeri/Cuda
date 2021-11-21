@@ -109,6 +109,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: calc(32px + 8 * ((100vw - 320px) / 1120));
   padding-top: 120px;
   padding-bottom: calc(13px + 7 * ((100vw - 320px) / 1120));
+  text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.1em;
   position: relative;

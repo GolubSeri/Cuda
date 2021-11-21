@@ -1,6 +1,7 @@
 // Миксины
 @mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;}
 
+// Ширина всего макета
 $maxWidth: 1440;
 $maxWidthContainer: 1083;
 
@@ -75,13 +76,14 @@ $md4:479.98;
 	}
 }
 
-//Шаблоны
+//Классы
 .Title{
 	margin: 0px 20px 20px 20px;
 	text-align: center;
 	@include adaptiv-value('font-size', 40, 32, 0);
 	@include adaptiv-value('padding-top', 120, 55, 1);
 	@include adaptiv-value('padding-bottom', 20, 13, 0);
+	text-transform: uppercase;
 	
 	
 	font-weight: 700;
